@@ -19,7 +19,7 @@ function detectLang(text) {
 
 function getBRLRate() {
   const rate = process.env.BRL_RATE || "275";
-  return 💱 Câmbio do dia: $${rate} pesos argentinos = 1 Real;
+  return  "Câmbio do dia: $"+{rate}+ pesos argentinos = 1 Real;
 }
 
 async function sendMsg(phone, text) {
