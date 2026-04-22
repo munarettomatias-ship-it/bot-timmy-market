@@ -17,14 +17,9 @@ function detectLang(text) {
   return pt.test(text) ? "pt" : "es";
 }
 
-async function getBRLRate() {
-  try {
-    const { data } = await axios.get("https://api.exchangerate-api.com/v4/latest/BRL");
-    const rate = (1 / data.rates.ARS).toFixed(2);
-    return 💱 Câmbio hoje: 1 ARS = ${rate} BRL;
-  } catch {
-    return "💱 No pude obtener el cambio hoy.";
-  }
+function getBRLRate() {
+  const rate = process.env.BRL_RATE || "275";
+  return 💱 Câmbio do dia: $${rate} pesos argentinos = 1 Real;
 }
 
 async function sendMsg(phone, text) {
